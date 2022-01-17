@@ -44,7 +44,7 @@ class PriceFeedEventDTO with _$PriceFeedEventDTO {
       PriceFeedEventDTOInfo;
 
   const factory PriceFeedEventDTO.subscribed(
-      {@JsonKey(name: 'product_id') required List<String> ids,
+      {@JsonKey(name: 'product_ids') required List<String> ids,
       required double price,
       @JsonKey(name: 'qty') required double quantity,
       required int timestamp}) = PriceFeedEventDTOSubscribed;
@@ -56,7 +56,7 @@ class PriceFeedEventDTO with _$PriceFeedEventDTO {
 class PriceFeedBookDTO with _$PriceFeedBookDTO {
   @FreezedUnionValue('book_snapshot')
   const factory PriceFeedBookDTO.snapshot(
-      {@JsonKey(name: 'product_ids') required List<String> ids,
+      {@JsonKey(name: 'product_id') required String id,
       required int timestamp,
       int? tickSize,
       required int seq,

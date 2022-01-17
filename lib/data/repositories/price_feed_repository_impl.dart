@@ -27,4 +27,14 @@ class PriceFeedRepositoryImpl implements PriceFeedRepository {
     return _dataSource.snapshots
         .map((snapshot) => _snapshotMapper.mapFrom(snapshot));
   }
+
+  @override
+  Future<void> connect() {
+    return _dataSource.connect();
+  }
+
+  @override
+  Future<void> disconnect() {
+    return _dataSource.disconnect();
+  }
 }

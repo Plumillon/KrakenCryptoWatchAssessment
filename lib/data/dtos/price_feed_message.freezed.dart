@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+PriceFeedMessage _$PriceFeedMessageFromJson(Map<String, dynamic> json) {
+  return ProductsPriceFeedMessage.fromJson(json);
+}
+
 /// @nodoc
 class _$PriceFeedMessageTearOff {
   const _$PriceFeedMessageTearOff();
@@ -27,6 +31,10 @@ class _$PriceFeedMessageTearOff {
       feed: feed,
       productIds: productIds,
     );
+  }
+
+  PriceFeedMessage fromJson(Map<String, Object?> json) {
+    return PriceFeedMessage.fromJson(json);
   }
 }
 
@@ -78,7 +86,7 @@ mixin _$PriceFeedMessage {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PriceFeedMessageCopyWith<PriceFeedMessage> get copyWith =>
       throw _privateConstructorUsedError;
@@ -176,12 +184,15 @@ class _$ProductsPriceFeedMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$ProductsPriceFeedMessage implements ProductsPriceFeedMessage {
   const _$ProductsPriceFeedMessage(
       {required this.event,
       required this.feed,
       @JsonKey(name: 'product_ids') required this.productIds});
+
+  factory _$ProductsPriceFeedMessage.fromJson(Map<String, dynamic> json) =>
+      _$$ProductsPriceFeedMessageFromJson(json);
 
   @override
   final String event;
@@ -281,6 +292,11 @@ class _$ProductsPriceFeedMessage implements ProductsPriceFeedMessage {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ProductsPriceFeedMessageToJson(this);
+  }
 }
 
 abstract class ProductsPriceFeedMessage implements PriceFeedMessage {
@@ -289,6 +305,9 @@ abstract class ProductsPriceFeedMessage implements PriceFeedMessage {
           required String feed,
           @JsonKey(name: 'product_ids') required List<String> productIds}) =
       _$ProductsPriceFeedMessage;
+
+  factory ProductsPriceFeedMessage.fromJson(Map<String, dynamic> json) =
+      _$ProductsPriceFeedMessage.fromJson;
 
   @override
   String get event;

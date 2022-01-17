@@ -6,4 +6,4 @@ targets:
           auto_register: true
           # auto registers any class with a name matches the given pattern
           class_name_pattern:
-            "^.*UseCase$|^.*Mapper$|^.*RepositoryImpl$|^.*ViewModel$"
+            "^.*Bloc$|^.*UseCase$|^.*Mapper$|^.*RepositoryImpl$"

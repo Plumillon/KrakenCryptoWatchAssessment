@@ -23,7 +23,7 @@ Map<String, dynamic> _$$PriceFeedEventDTOInfoToJson(
 _$PriceFeedEventDTOSubscribed _$$PriceFeedEventDTOSubscribedFromJson(
         Map<String, dynamic> json) =>
     _$PriceFeedEventDTOSubscribed(
-      ids: (json['product_id'] as List<dynamic>)
+      ids: (json['product_ids'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
       price: (json['price'] as num).toDouble(),
@@ -35,7 +35,7 @@ _$PriceFeedEventDTOSubscribed _$$PriceFeedEventDTOSubscribedFromJson(
 Map<String, dynamic> _$$PriceFeedEventDTOSubscribedToJson(
         _$PriceFeedEventDTOSubscribed instance) =>
     <String, dynamic>{
-      'product_id': instance.ids,
+      'product_ids': instance.ids,
       'price': instance.price,
       'qty': instance.quantity,
       'timestamp': instance.timestamp,
@@ -45,9 +45,7 @@ Map<String, dynamic> _$$PriceFeedEventDTOSubscribedToJson(
 _$PriceFeedBookDTOSnapshot _$$PriceFeedBookDTOSnapshotFromJson(
         Map<String, dynamic> json) =>
     _$PriceFeedBookDTOSnapshot(
-      ids: (json['product_ids'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      id: json['product_id'] as String,
       timestamp: json['timestamp'] as int,
       tickSize: json['tickSize'] as int?,
       seq: json['seq'] as int,
@@ -63,7 +61,7 @@ _$PriceFeedBookDTOSnapshot _$$PriceFeedBookDTOSnapshotFromJson(
 Map<String, dynamic> _$$PriceFeedBookDTOSnapshotToJson(
         _$PriceFeedBookDTOSnapshot instance) =>
     <String, dynamic>{
-      'product_ids': instance.ids,
+      'product_id': instance.id,
       'timestamp': instance.timestamp,
       'tickSize': instance.tickSize,
       'seq': instance.seq,

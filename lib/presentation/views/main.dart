@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kraken_crypto_watch/presentation/views/books_list.dart';
 
 import '../di/injector.dart';
 
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const BooksList(),
     );
   }
 }

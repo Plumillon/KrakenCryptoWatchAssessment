@@ -22,7 +22,8 @@ BookEntryDTO _$BookEntryDTOFromJson(Map<String, dynamic> json) {
 class _$BookEntryDTOTearOff {
   const _$BookEntryDTOTearOff();
 
-  _BookEntryDTO call({double price = 0, double quantity = 0}) {
+  _BookEntryDTO call(
+      {double price = 0, @JsonKey(name: 'qty') double quantity = 0}) {
     return _BookEntryDTO(
       price: price,
       quantity: quantity,
@@ -40,6 +41,7 @@ const $BookEntryDTO = _$BookEntryDTOTearOff();
 /// @nodoc
 mixin _$BookEntryDTO {
   double get price => throw _privateConstructorUsedError;
+  @JsonKey(name: 'qty')
   double get quantity => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,7 +55,7 @@ abstract class $BookEntryDTOCopyWith<$Res> {
   factory $BookEntryDTOCopyWith(
           BookEntryDTO value, $Res Function(BookEntryDTO) then) =
       _$BookEntryDTOCopyWithImpl<$Res>;
-  $Res call({double price, double quantity});
+  $Res call({double price, @JsonKey(name: 'qty') double quantity});
 }
 
 /// @nodoc
@@ -89,7 +91,7 @@ abstract class _$BookEntryDTOCopyWith<$Res>
           _BookEntryDTO value, $Res Function(_BookEntryDTO) then) =
       __$BookEntryDTOCopyWithImpl<$Res>;
   @override
-  $Res call({double price, double quantity});
+  $Res call({double price, @JsonKey(name: 'qty') double quantity});
 }
 
 /// @nodoc
@@ -123,7 +125,8 @@ class __$BookEntryDTOCopyWithImpl<$Res> extends _$BookEntryDTOCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_BookEntryDTO implements _BookEntryDTO {
-  const _$_BookEntryDTO({this.price = 0, this.quantity = 0});
+  const _$_BookEntryDTO(
+      {this.price = 0, @JsonKey(name: 'qty') this.quantity = 0});
 
   factory _$_BookEntryDTO.fromJson(Map<String, dynamic> json) =>
       _$$_BookEntryDTOFromJson(json);
@@ -131,8 +134,8 @@ class _$_BookEntryDTO implements _BookEntryDTO {
   @JsonKey()
   @override
   final double price;
-  @JsonKey()
   @override
+  @JsonKey(name: 'qty')
   final double quantity;
 
   @override
@@ -167,8 +170,8 @@ class _$_BookEntryDTO implements _BookEntryDTO {
 }
 
 abstract class _BookEntryDTO implements BookEntryDTO {
-  const factory _BookEntryDTO({double price, double quantity}) =
-      _$_BookEntryDTO;
+  const factory _BookEntryDTO(
+      {double price, @JsonKey(name: 'qty') double quantity}) = _$_BookEntryDTO;
 
   factory _BookEntryDTO.fromJson(Map<String, dynamic> json) =
       _$_BookEntryDTO.fromJson;
@@ -176,6 +179,7 @@ abstract class _BookEntryDTO implements BookEntryDTO {
   @override
   double get price;
   @override
+  @JsonKey(name: 'qty')
   double get quantity;
   @override
   @JsonKey(ignore: true)

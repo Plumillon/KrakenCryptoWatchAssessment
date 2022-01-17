@@ -38,7 +38,7 @@ class _$PriceFeedEventDTOTearOff {
   }
 
   PriceFeedEventDTOSubscribed subscribed(
-      {@JsonKey(name: 'product_id') required List<String> ids,
+      {@JsonKey(name: 'product_ids') required List<String> ids,
       required double price,
       @JsonKey(name: 'qty') required double quantity,
       required int timestamp}) {
@@ -63,7 +63,7 @@ mixin _$PriceFeedEventDTO {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int version) info,
-    required TResult Function(@JsonKey(name: 'product_id') List<String> ids,
+    required TResult Function(@JsonKey(name: 'product_ids') List<String> ids,
             double price, @JsonKey(name: 'qty') double quantity, int timestamp)
         subscribed,
   }) =>
@@ -71,7 +71,7 @@ mixin _$PriceFeedEventDTO {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(int version)? info,
-    TResult Function(@JsonKey(name: 'product_id') List<String> ids,
+    TResult Function(@JsonKey(name: 'product_ids') List<String> ids,
             double price, @JsonKey(name: 'qty') double quantity, int timestamp)?
         subscribed,
   }) =>
@@ -79,7 +79,7 @@ mixin _$PriceFeedEventDTO {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int version)? info,
-    TResult Function(@JsonKey(name: 'product_id') List<String> ids,
+    TResult Function(@JsonKey(name: 'product_ids') List<String> ids,
             double price, @JsonKey(name: 'qty') double quantity, int timestamp)?
         subscribed,
     required TResult orElse(),
@@ -198,7 +198,7 @@ class _$PriceFeedEventDTOInfo implements PriceFeedEventDTOInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int version) info,
-    required TResult Function(@JsonKey(name: 'product_id') List<String> ids,
+    required TResult Function(@JsonKey(name: 'product_ids') List<String> ids,
             double price, @JsonKey(name: 'qty') double quantity, int timestamp)
         subscribed,
   }) {
@@ -209,7 +209,7 @@ class _$PriceFeedEventDTOInfo implements PriceFeedEventDTOInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(int version)? info,
-    TResult Function(@JsonKey(name: 'product_id') List<String> ids,
+    TResult Function(@JsonKey(name: 'product_ids') List<String> ids,
             double price, @JsonKey(name: 'qty') double quantity, int timestamp)?
         subscribed,
   }) {
@@ -220,7 +220,7 @@ class _$PriceFeedEventDTOInfo implements PriceFeedEventDTOInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int version)? info,
-    TResult Function(@JsonKey(name: 'product_id') List<String> ids,
+    TResult Function(@JsonKey(name: 'product_ids') List<String> ids,
             double price, @JsonKey(name: 'qty') double quantity, int timestamp)?
         subscribed,
     required TResult orElse(),
@@ -288,7 +288,7 @@ abstract class $PriceFeedEventDTOSubscribedCopyWith<$Res> {
           $Res Function(PriceFeedEventDTOSubscribed) then) =
       _$PriceFeedEventDTOSubscribedCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'product_id') List<String> ids,
+      {@JsonKey(name: 'product_ids') List<String> ids,
       double price,
       @JsonKey(name: 'qty') double quantity,
       int timestamp});
@@ -338,7 +338,7 @@ class _$PriceFeedEventDTOSubscribedCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PriceFeedEventDTOSubscribed implements PriceFeedEventDTOSubscribed {
   const _$PriceFeedEventDTOSubscribed(
-      {@JsonKey(name: 'product_id') required this.ids,
+      {@JsonKey(name: 'product_ids') required this.ids,
       required this.price,
       @JsonKey(name: 'qty') required this.quantity,
       required this.timestamp,
@@ -349,7 +349,7 @@ class _$PriceFeedEventDTOSubscribed implements PriceFeedEventDTOSubscribed {
       _$$PriceFeedEventDTOSubscribedFromJson(json);
 
   @override
-  @JsonKey(name: 'product_id')
+  @JsonKey(name: 'product_ids')
   final List<String> ids;
   @override
   final double price;
@@ -396,7 +396,7 @@ class _$PriceFeedEventDTOSubscribed implements PriceFeedEventDTOSubscribed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int version) info,
-    required TResult Function(@JsonKey(name: 'product_id') List<String> ids,
+    required TResult Function(@JsonKey(name: 'product_ids') List<String> ids,
             double price, @JsonKey(name: 'qty') double quantity, int timestamp)
         subscribed,
   }) {
@@ -407,7 +407,7 @@ class _$PriceFeedEventDTOSubscribed implements PriceFeedEventDTOSubscribed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(int version)? info,
-    TResult Function(@JsonKey(name: 'product_id') List<String> ids,
+    TResult Function(@JsonKey(name: 'product_ids') List<String> ids,
             double price, @JsonKey(name: 'qty') double quantity, int timestamp)?
         subscribed,
   }) {
@@ -418,7 +418,7 @@ class _$PriceFeedEventDTOSubscribed implements PriceFeedEventDTOSubscribed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int version)? info,
-    TResult Function(@JsonKey(name: 'product_id') List<String> ids,
+    TResult Function(@JsonKey(name: 'product_ids') List<String> ids,
             double price, @JsonKey(name: 'qty') double quantity, int timestamp)?
         subscribed,
     required TResult orElse(),
@@ -468,7 +468,7 @@ class _$PriceFeedEventDTOSubscribed implements PriceFeedEventDTOSubscribed {
 
 abstract class PriceFeedEventDTOSubscribed implements PriceFeedEventDTO {
   const factory PriceFeedEventDTOSubscribed(
-      {@JsonKey(name: 'product_id') required List<String> ids,
+      {@JsonKey(name: 'product_ids') required List<String> ids,
       required double price,
       @JsonKey(name: 'qty') required double quantity,
       required int timestamp}) = _$PriceFeedEventDTOSubscribed;
@@ -476,7 +476,7 @@ abstract class PriceFeedEventDTOSubscribed implements PriceFeedEventDTO {
   factory PriceFeedEventDTOSubscribed.fromJson(Map<String, dynamic> json) =
       _$PriceFeedEventDTOSubscribed.fromJson;
 
-  @JsonKey(name: 'product_id')
+  @JsonKey(name: 'product_ids')
   List<String> get ids;
   double get price;
   @JsonKey(name: 'qty')
@@ -505,14 +505,14 @@ class _$PriceFeedBookDTOTearOff {
   const _$PriceFeedBookDTOTearOff();
 
   PriceFeedBookDTOSnapshot snapshot(
-      {@JsonKey(name: 'product_ids') required List<String> ids,
+      {@JsonKey(name: 'product_id') required String id,
       required int timestamp,
       int? tickSize,
       required int seq,
       required List<BookEntryDTO> bids,
       required List<BookEntryDTO> asks}) {
     return PriceFeedBookDTOSnapshot(
-      ids: ids,
+      id: id,
       timestamp: timestamp,
       tickSize: tickSize,
       seq: seq,
@@ -548,13 +548,15 @@ const $PriceFeedBookDTO = _$PriceFeedBookDTOTearOff();
 
 /// @nodoc
 mixin _$PriceFeedBookDTO {
+  @JsonKey(name: 'product_id')
+  String get id => throw _privateConstructorUsedError;
   int get timestamp => throw _privateConstructorUsedError;
   int get seq => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            @JsonKey(name: 'product_ids') List<String> ids,
+            @JsonKey(name: 'product_id') String id,
             int timestamp,
             int? tickSize,
             int seq,
@@ -574,7 +576,7 @@ mixin _$PriceFeedBookDTO {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
-            @JsonKey(name: 'product_ids') List<String> ids,
+            @JsonKey(name: 'product_id') String id,
             int timestamp,
             int? tickSize,
             int seq,
@@ -594,7 +596,7 @@ mixin _$PriceFeedBookDTO {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            @JsonKey(name: 'product_ids') List<String> ids,
+            @JsonKey(name: 'product_id') String id,
             int timestamp,
             int? tickSize,
             int seq,
@@ -642,7 +644,7 @@ abstract class $PriceFeedBookDTOCopyWith<$Res> {
   factory $PriceFeedBookDTOCopyWith(
           PriceFeedBookDTO value, $Res Function(PriceFeedBookDTO) then) =
       _$PriceFeedBookDTOCopyWithImpl<$Res>;
-  $Res call({int timestamp, int seq});
+  $Res call({@JsonKey(name: 'product_id') String id, int timestamp, int seq});
 }
 
 /// @nodoc
@@ -656,10 +658,15 @@ class _$PriceFeedBookDTOCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? timestamp = freezed,
     Object? seq = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
@@ -680,7 +687,7 @@ abstract class $PriceFeedBookDTOSnapshotCopyWith<$Res>
       _$PriceFeedBookDTOSnapshotCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'product_ids') List<String> ids,
+      {@JsonKey(name: 'product_id') String id,
       int timestamp,
       int? tickSize,
       int seq,
@@ -702,7 +709,7 @@ class _$PriceFeedBookDTOSnapshotCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? ids = freezed,
+    Object? id = freezed,
     Object? timestamp = freezed,
     Object? tickSize = freezed,
     Object? seq = freezed,
@@ -710,10 +717,10 @@ class _$PriceFeedBookDTOSnapshotCopyWithImpl<$Res>
     Object? asks = freezed,
   }) {
     return _then(PriceFeedBookDTOSnapshot(
-      ids: ids == freezed
-          ? _value.ids
-          : ids // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
@@ -743,7 +750,7 @@ class _$PriceFeedBookDTOSnapshotCopyWithImpl<$Res>
 @FreezedUnionValue('book_snapshot')
 class _$PriceFeedBookDTOSnapshot implements PriceFeedBookDTOSnapshot {
   const _$PriceFeedBookDTOSnapshot(
-      {@JsonKey(name: 'product_ids') required this.ids,
+      {@JsonKey(name: 'product_id') required this.id,
       required this.timestamp,
       this.tickSize,
       required this.seq,
@@ -756,8 +763,8 @@ class _$PriceFeedBookDTOSnapshot implements PriceFeedBookDTOSnapshot {
       _$$PriceFeedBookDTOSnapshotFromJson(json);
 
   @override
-  @JsonKey(name: 'product_ids')
-  final List<String> ids;
+  @JsonKey(name: 'product_id')
+  final String id;
   @override
   final int timestamp;
   @override
@@ -774,7 +781,7 @@ class _$PriceFeedBookDTOSnapshot implements PriceFeedBookDTOSnapshot {
 
   @override
   String toString() {
-    return 'PriceFeedBookDTO.snapshot(ids: $ids, timestamp: $timestamp, tickSize: $tickSize, seq: $seq, bids: $bids, asks: $asks)';
+    return 'PriceFeedBookDTO.snapshot(id: $id, timestamp: $timestamp, tickSize: $tickSize, seq: $seq, bids: $bids, asks: $asks)';
   }
 
   @override
@@ -782,7 +789,7 @@ class _$PriceFeedBookDTOSnapshot implements PriceFeedBookDTOSnapshot {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PriceFeedBookDTOSnapshot &&
-            const DeepCollectionEquality().equals(other.ids, ids) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
             const DeepCollectionEquality().equals(other.tickSize, tickSize) &&
             const DeepCollectionEquality().equals(other.seq, seq) &&
@@ -793,7 +800,7 @@ class _$PriceFeedBookDTOSnapshot implements PriceFeedBookDTOSnapshot {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(ids),
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(timestamp),
       const DeepCollectionEquality().hash(tickSize),
       const DeepCollectionEquality().hash(seq),
@@ -810,7 +817,7 @@ class _$PriceFeedBookDTOSnapshot implements PriceFeedBookDTOSnapshot {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            @JsonKey(name: 'product_ids') List<String> ids,
+            @JsonKey(name: 'product_id') String id,
             int timestamp,
             int? tickSize,
             int seq,
@@ -826,14 +833,14 @@ class _$PriceFeedBookDTOSnapshot implements PriceFeedBookDTOSnapshot {
             int timestamp)
         book,
   }) {
-    return snapshot(ids, timestamp, tickSize, seq, bids, asks);
+    return snapshot(id, timestamp, tickSize, seq, bids, asks);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
-            @JsonKey(name: 'product_ids') List<String> ids,
+            @JsonKey(name: 'product_id') String id,
             int timestamp,
             int? tickSize,
             int seq,
@@ -849,14 +856,14 @@ class _$PriceFeedBookDTOSnapshot implements PriceFeedBookDTOSnapshot {
             int timestamp)?
         book,
   }) {
-    return snapshot?.call(ids, timestamp, tickSize, seq, bids, asks);
+    return snapshot?.call(id, timestamp, tickSize, seq, bids, asks);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            @JsonKey(name: 'product_ids') List<String> ids,
+            @JsonKey(name: 'product_id') String id,
             int timestamp,
             int? tickSize,
             int seq,
@@ -874,7 +881,7 @@ class _$PriceFeedBookDTOSnapshot implements PriceFeedBookDTOSnapshot {
     required TResult orElse(),
   }) {
     if (snapshot != null) {
-      return snapshot(ids, timestamp, tickSize, seq, bids, asks);
+      return snapshot(id, timestamp, tickSize, seq, bids, asks);
     }
     return orElse();
   }
@@ -918,7 +925,7 @@ class _$PriceFeedBookDTOSnapshot implements PriceFeedBookDTOSnapshot {
 
 abstract class PriceFeedBookDTOSnapshot implements PriceFeedBookDTO {
   const factory PriceFeedBookDTOSnapshot(
-      {@JsonKey(name: 'product_ids') required List<String> ids,
+      {@JsonKey(name: 'product_id') required String id,
       required int timestamp,
       int? tickSize,
       required int seq,
@@ -928,8 +935,9 @@ abstract class PriceFeedBookDTOSnapshot implements PriceFeedBookDTO {
   factory PriceFeedBookDTOSnapshot.fromJson(Map<String, dynamic> json) =
       _$PriceFeedBookDTOSnapshot.fromJson;
 
-  @JsonKey(name: 'product_ids')
-  List<String> get ids;
+  @override
+  @JsonKey(name: 'product_id')
+  String get id;
   @override
   int get timestamp;
   int? get tickSize;
@@ -1080,7 +1088,7 @@ class _$PriceFeedBookDTOBook implements PriceFeedBookDTOBook {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            @JsonKey(name: 'product_ids') List<String> ids,
+            @JsonKey(name: 'product_id') String id,
             int timestamp,
             int? tickSize,
             int seq,
@@ -1103,7 +1111,7 @@ class _$PriceFeedBookDTOBook implements PriceFeedBookDTOBook {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
-            @JsonKey(name: 'product_ids') List<String> ids,
+            @JsonKey(name: 'product_id') String id,
             int timestamp,
             int? tickSize,
             int seq,
@@ -1126,7 +1134,7 @@ class _$PriceFeedBookDTOBook implements PriceFeedBookDTOBook {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            @JsonKey(name: 'product_ids') List<String> ids,
+            @JsonKey(name: 'product_id') String id,
             int timestamp,
             int? tickSize,
             int seq,
@@ -1198,6 +1206,7 @@ abstract class PriceFeedBookDTOBook implements PriceFeedBookDTO {
   factory PriceFeedBookDTOBook.fromJson(Map<String, dynamic> json) =
       _$PriceFeedBookDTOBook.fromJson;
 
+  @override
   @JsonKey(name: 'product_id')
   String get id;
   String get side;
