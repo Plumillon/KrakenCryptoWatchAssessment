@@ -31,19 +31,43 @@ class _BooksListState extends State<BooksList> {
         child: BlocBuilder<BooksBloc, BookState>(
           builder: (context, state) {
             if (state is BookStateLoaded) {
-              return ListView.builder(
-                  itemCount: state.books.length,
-                  itemBuilder: (BuildContext context, int index) => InkWell(
-                        child: Text(state.books[index].quantity.toString() +
-                            " " +
-                            state.books[index].price.toString()),
-                      ));
+              return _buildBooks(state);
             }
 
             return Container();
           },
         ),
       ),
+    );
+  }
+
+  Widget _buildBooks(BookStateLoaded state) {
+    return ListView.builder(
+        itemCount: state.bids.length,
+        itemBuilder: (BuildContext context, int index) => InkWell(
+          child: Text(state.bids[index].quantity.toString() +
+              " " +
+              state.bids[index].price.toString()),
+        ));
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        ListView.builder(
+            itemCount: state.asks.length,
+            itemBuilder: (BuildContext context, int index) => InkWell(
+                  child: Text(state.asks[index].quantity.toString() +
+                      " " +
+                      state.asks[index].price.toString()),
+                )),
+        ListView.builder(
+            itemCount: state.bids.length,
+            itemBuilder: (BuildContext context, int index) => InkWell(
+                  child: Text(state.bids[index].quantity.toString() +
+                      " " +
+                      state.bids[index].price.toString()),
+                )),
+      ],
     );
   }
 }

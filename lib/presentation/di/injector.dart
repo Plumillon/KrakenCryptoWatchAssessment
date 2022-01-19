@@ -31,7 +31,7 @@ abstract class AppModule {
             // number of method calls to be displayed
             errorMethodCount: 8,
             // number of method calls if stacktrace is provided
-            lineLength: 120,
+            lineLength: 220,
             // width of the output
             colors: true,
             // Colorful log messages

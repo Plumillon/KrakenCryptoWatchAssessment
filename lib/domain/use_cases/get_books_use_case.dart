@@ -1,7 +1,6 @@
 import 'package:kraken_crypto_watch/domain/entities/book_entity.dart';
 import 'package:kraken_crypto_watch/domain/repositories/price_feed_repository.dart';
 import 'package:kraken_crypto_watch/domain/use_cases/use_case.dart';
-import 'package:kraken_crypto_watch/utils/logger.dart';
 import 'package:rxdart/rxdart.dart';
 
 class GetBooksUseCase implements StreamUseCase<Side, List<BookEntity>> {
@@ -17,6 +16,17 @@ class GetBooksUseCase implements StreamUseCase<Side, List<BookEntity>> {
   ///
   @override
   Stream<List<BookEntity>> execute({required Side param}) {
+    // return MergeStream([
+    //   Stream.periodic(const Duration(seconds: 1), (int index) {
+    //     return BookEntity(
+    //         side: Side.ask, price: index + 0.33, quantity: index + 0.33);
+    //   }),
+    //   Stream.periodic(const Duration(seconds: 1), (int index) {
+    //     return BookEntity(
+    //         side: Side.bid, price: index - 1.33, quantity: index - 1.33);
+    //   })
+    // ])
+
     return MergeStream([
       _priceFeedRepository.getBooks(),
       _priceFeedRepository
@@ -32,11 +42,15 @@ class GetBooksUseCase implements StreamUseCase<Side, List<BookEntity>> {
       }
 
       // And order it depending of the asked side
-      // ASC for asks and DESC for bids
-      _book = Map.fromEntries(_book.entries.toList()
-        ..sort((entry1, entry2) => entry1.value.compareTo(entry2.value)));
-
-      return _book.entries.map((entry) => entry.value).take(20).toList();
-    }).doOnData((books) => getLogger().v(books));
+      // DESC for asks and ASC for bids
+      return Map.fromEntries(_book.entries.toList()
+            ..sort((entry1, entry2) =>
+                entry1.value.compareTo(entry2.value) *
+                (param == Side.ask ? 1 : -1)))
+          .entries
+          .map((entry) => entry.value)
+          .take(20)
+          .toList();
+    });
   }
 }

@@ -26,10 +26,11 @@ class _$BookStateTearOff {
     return const BookStateLoading();
   }
 
-  BookStateLoaded loaded({required Side side, required List<BookModel> books}) {
+  BookStateLoaded loaded(
+      {required List<BookModel> asks, required List<BookModel> bids}) {
     return BookStateLoaded(
-      side: side,
-      books: books,
+      asks: asks,
+      bids: bids,
     );
   }
 
@@ -49,7 +50,8 @@ mixin _$BookState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Side side, List<BookModel> books) loaded,
+    required TResult Function(List<BookModel> asks, List<BookModel> bids)
+        loaded,
     required TResult Function(double price) selected,
   }) =>
       throw _privateConstructorUsedError;
@@ -57,7 +59,7 @@ mixin _$BookState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Side side, List<BookModel> books)? loaded,
+    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
     TResult Function(double price)? selected,
   }) =>
       throw _privateConstructorUsedError;
@@ -65,7 +67,7 @@ mixin _$BookState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Side side, List<BookModel> books)? loaded,
+    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
     TResult Function(double price)? selected,
     required TResult orElse(),
   }) =>
@@ -154,7 +156,8 @@ class _$BookStateInitial implements BookStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Side side, List<BookModel> books) loaded,
+    required TResult Function(List<BookModel> asks, List<BookModel> bids)
+        loaded,
     required TResult Function(double price) selected,
   }) {
     return initial();
@@ -165,7 +168,7 @@ class _$BookStateInitial implements BookStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Side side, List<BookModel> books)? loaded,
+    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
     TResult Function(double price)? selected,
   }) {
     return initial?.call();
@@ -176,7 +179,7 @@ class _$BookStateInitial implements BookStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Side side, List<BookModel> books)? loaded,
+    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
     TResult Function(double price)? selected,
     required TResult orElse(),
   }) {
@@ -270,7 +273,8 @@ class _$BookStateLoading implements BookStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Side side, List<BookModel> books) loaded,
+    required TResult Function(List<BookModel> asks, List<BookModel> bids)
+        loaded,
     required TResult Function(double price) selected,
   }) {
     return loading();
@@ -281,7 +285,7 @@ class _$BookStateLoading implements BookStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Side side, List<BookModel> books)? loaded,
+    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
     TResult Function(double price)? selected,
   }) {
     return loading?.call();
@@ -292,7 +296,7 @@ class _$BookStateLoading implements BookStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Side side, List<BookModel> books)? loaded,
+    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
     TResult Function(double price)? selected,
     required TResult orElse(),
   }) {
@@ -349,7 +353,7 @@ abstract class $BookStateLoadedCopyWith<$Res> {
   factory $BookStateLoadedCopyWith(
           BookStateLoaded value, $Res Function(BookStateLoaded) then) =
       _$BookStateLoadedCopyWithImpl<$Res>;
-  $Res call({Side side, List<BookModel> books});
+  $Res call({List<BookModel> asks, List<BookModel> bids});
 }
 
 /// @nodoc
@@ -364,17 +368,17 @@ class _$BookStateLoadedCopyWithImpl<$Res> extends _$BookStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? side = freezed,
-    Object? books = freezed,
+    Object? asks = freezed,
+    Object? bids = freezed,
   }) {
     return _then(BookStateLoaded(
-      side: side == freezed
-          ? _value.side
-          : side // ignore: cast_nullable_to_non_nullable
-              as Side,
-      books: books == freezed
-          ? _value.books
-          : books // ignore: cast_nullable_to_non_nullable
+      asks: asks == freezed
+          ? _value.asks
+          : asks // ignore: cast_nullable_to_non_nullable
+              as List<BookModel>,
+      bids: bids == freezed
+          ? _value.bids
+          : bids // ignore: cast_nullable_to_non_nullable
               as List<BookModel>,
     ));
   }
@@ -383,16 +387,16 @@ class _$BookStateLoadedCopyWithImpl<$Res> extends _$BookStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$BookStateLoaded implements BookStateLoaded {
-  const _$BookStateLoaded({required this.side, required this.books});
+  const _$BookStateLoaded({required this.asks, required this.bids});
 
   @override
-  final Side side;
+  final List<BookModel> asks;
   @override
-  final List<BookModel> books;
+  final List<BookModel> bids;
 
   @override
   String toString() {
-    return 'BookState.loaded(side: $side, books: $books)';
+    return 'BookState.loaded(asks: $asks, bids: $bids)';
   }
 
   @override
@@ -400,15 +404,15 @@ class _$BookStateLoaded implements BookStateLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is BookStateLoaded &&
-            const DeepCollectionEquality().equals(other.side, side) &&
-            const DeepCollectionEquality().equals(other.books, books));
+            const DeepCollectionEquality().equals(other.asks, asks) &&
+            const DeepCollectionEquality().equals(other.bids, bids));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(side),
-      const DeepCollectionEquality().hash(books));
+      const DeepCollectionEquality().hash(asks),
+      const DeepCollectionEquality().hash(bids));
 
   @JsonKey(ignore: true)
   @override
@@ -420,10 +424,11 @@ class _$BookStateLoaded implements BookStateLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Side side, List<BookModel> books) loaded,
+    required TResult Function(List<BookModel> asks, List<BookModel> bids)
+        loaded,
     required TResult Function(double price) selected,
   }) {
-    return loaded(side, books);
+    return loaded(asks, bids);
   }
 
   @override
@@ -431,10 +436,10 @@ class _$BookStateLoaded implements BookStateLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Side side, List<BookModel> books)? loaded,
+    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
     TResult Function(double price)? selected,
   }) {
-    return loaded?.call(side, books);
+    return loaded?.call(asks, bids);
   }
 
   @override
@@ -442,12 +447,12 @@ class _$BookStateLoaded implements BookStateLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Side side, List<BookModel> books)? loaded,
+    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
     TResult Function(double price)? selected,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(side, books);
+      return loaded(asks, bids);
     }
     return orElse();
   }
@@ -492,10 +497,11 @@ class _$BookStateLoaded implements BookStateLoaded {
 
 abstract class BookStateLoaded implements BookState {
   const factory BookStateLoaded(
-      {required Side side, required List<BookModel> books}) = _$BookStateLoaded;
+      {required List<BookModel> asks,
+      required List<BookModel> bids}) = _$BookStateLoaded;
 
-  Side get side;
-  List<BookModel> get books;
+  List<BookModel> get asks;
+  List<BookModel> get bids;
   @JsonKey(ignore: true)
   $BookStateLoadedCopyWith<BookStateLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -568,7 +574,8 @@ class _$BookStateSelected implements BookStateSelected {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Side side, List<BookModel> books) loaded,
+    required TResult Function(List<BookModel> asks, List<BookModel> bids)
+        loaded,
     required TResult Function(double price) selected,
   }) {
     return selected(price);
@@ -579,7 +586,7 @@ class _$BookStateSelected implements BookStateSelected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Side side, List<BookModel> books)? loaded,
+    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
     TResult Function(double price)? selected,
   }) {
     return selected?.call(price);
@@ -590,7 +597,7 @@ class _$BookStateSelected implements BookStateSelected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Side side, List<BookModel> books)? loaded,
+    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
     TResult Function(double price)? selected,
     required TResult orElse(),
   }) {

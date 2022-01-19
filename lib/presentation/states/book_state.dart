@@ -10,7 +10,8 @@ class BookState {
   const factory BookState.loading() = BookStateLoading;
 
   const factory BookState.loaded(
-      {required Side side, required List<BookModel> books}) = BookStateLoaded;
+      {required List<BookModel> asks,
+      required List<BookModel> bids}) = BookStateLoaded;
 
   const factory BookState.selected({required double price}) = BookStateSelected;
 }

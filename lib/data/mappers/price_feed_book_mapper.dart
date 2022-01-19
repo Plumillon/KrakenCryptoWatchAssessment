@@ -6,7 +6,7 @@ class PriceFeedBookMapper implements Mapper<PriceFeedBookDTOBook, BookEntity> {
   @override
   BookEntity mapFrom(PriceFeedBookDTOBook from) {
     return BookEntity(
-        side: from.side == 'sell' ? Side.bid : Side.ask,
+        side: from.side == 'sell' ? Side.ask : Side.bid,
         price: from.price,
         quantity: from.quantity);
   }
