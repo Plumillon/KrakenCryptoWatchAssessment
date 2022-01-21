@@ -19,4 +19,21 @@ class BookEntity implements Comparable {
 
     return 0;
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BookEntity &&
+          runtimeType == other.runtimeType &&
+          side == other.side &&
+          price == other.price &&
+          quantity == other.quantity;
+
+  @override
+  int get hashCode => toString().hashCode;
+
+  @override
+  String toString() {
+    return 'BookEntity(side: $side, price: $price, quantity: $quantity)';
+  }
 }

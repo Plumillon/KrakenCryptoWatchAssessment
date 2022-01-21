@@ -12,8 +12,7 @@ class BookModelMapper implements Mapper<BookModel, book_entity.BookEntity> {
   @override
   book_entity.BookEntity mapFrom(BookModel from) {
     return book_entity.BookEntity(
-        side:
-            from.side == Side.bid ? book_entity.Side.bid : book_entity.Side.ask,
+        side: _sideMapper.mapFrom(from.side),
         price: from.price,
         quantity: from.quantity);
   }

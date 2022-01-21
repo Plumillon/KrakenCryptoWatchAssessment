@@ -47,6 +47,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  mockito: ^5.0.17
   json_serializable:
   injectable_generator: ^1.5.3
   freezed: ^1.1.1
