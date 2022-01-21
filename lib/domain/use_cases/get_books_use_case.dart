@@ -5,7 +5,7 @@ import 'package:rxdart/rxdart.dart';
 
 class GetBooksUseCase implements StreamUseCase<Side, List<BookEntity>> {
   final PriceFeedRepository _priceFeedRepository;
-  Map<double, BookEntity> _book = {};
+  final Map<double, BookEntity> _book = {};
 
   GetBooksUseCase(this._priceFeedRepository);
 
@@ -16,17 +16,6 @@ class GetBooksUseCase implements StreamUseCase<Side, List<BookEntity>> {
   ///
   @override
   Stream<List<BookEntity>> execute({required Side param}) {
-    // return MergeStream([
-    //   Stream.periodic(const Duration(seconds: 1), (int index) {
-    //     return BookEntity(
-    //         side: Side.ask, price: index + 0.33, quantity: index + 0.33);
-    //   }),
-    //   Stream.periodic(const Duration(seconds: 1), (int index) {
-    //     return BookEntity(
-    //         side: Side.bid, price: index - 1.33, quantity: index - 1.33);
-    //   })
-    // ])
-
     return MergeStream([
       _priceFeedRepository.getBooks(),
       _priceFeedRepository
@@ -43,11 +32,21 @@ class GetBooksUseCase implements StreamUseCase<Side, List<BookEntity>> {
 
       // And order it depending of the asked side
       // DESC for asks and ASC for bids
-      return Map.fromEntries(_book.entries.toList()
-            ..sort((entry1, entry2) =>
-                entry1.value.compareTo(entry2.value) *
-                (param == Side.ask ? 1 : -1)))
-          .entries
+      // return Map.fromEntries(_book.entries.toList()
+      //       ..sort((entry1, entry2) =>
+      //           entry1.value.compareTo(entry2.value) *
+      //           (param == Side.ask ? 1 : -1)))
+      //     .entries
+      //     .map((entry) => entry.value)
+      //     .take(20)
+      //     .toList();
+
+      var sortedBooks = Map.fromEntries(_book.entries);
+      sortedBooks.entries.toList().sort((entry1, entry2) =>
+          entry1.value.compareTo(entry2.value) * (param == Side.ask ? -1 : 1));
+
+      return sortedBooks.entries
+          .where((entry) => entry.value.side == param)
           .map((entry) => entry.value)
           .take(20)
           .toList();

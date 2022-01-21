@@ -33,12 +33,6 @@ class _$BookStateTearOff {
       bids: bids,
     );
   }
-
-  BookStateSelected selected({required double price}) {
-    return BookStateSelected(
-      price: price,
-    );
-  }
 }
 
 /// @nodoc
@@ -52,7 +46,6 @@ mixin _$BookState {
     required TResult Function() loading,
     required TResult Function(List<BookModel> asks, List<BookModel> bids)
         loaded,
-    required TResult Function(double price) selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,7 +53,6 @@ mixin _$BookState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
-    TResult Function(double price)? selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +60,6 @@ mixin _$BookState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
-    TResult Function(double price)? selected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,7 +68,6 @@ mixin _$BookState {
     required TResult Function(BookStateInitial value) initial,
     required TResult Function(BookStateLoading value) loading,
     required TResult Function(BookStateLoaded value) loaded,
-    required TResult Function(BookStateSelected value) selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,7 +75,6 @@ mixin _$BookState {
     TResult Function(BookStateInitial value)? initial,
     TResult Function(BookStateLoading value)? loading,
     TResult Function(BookStateLoaded value)? loaded,
-    TResult Function(BookStateSelected value)? selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,7 +82,6 @@ mixin _$BookState {
     TResult Function(BookStateInitial value)? initial,
     TResult Function(BookStateLoading value)? loading,
     TResult Function(BookStateLoaded value)? loaded,
-    TResult Function(BookStateSelected value)? selected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -158,7 +146,6 @@ class _$BookStateInitial implements BookStateInitial {
     required TResult Function() loading,
     required TResult Function(List<BookModel> asks, List<BookModel> bids)
         loaded,
-    required TResult Function(double price) selected,
   }) {
     return initial();
   }
@@ -169,7 +156,6 @@ class _$BookStateInitial implements BookStateInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
-    TResult Function(double price)? selected,
   }) {
     return initial?.call();
   }
@@ -180,7 +166,6 @@ class _$BookStateInitial implements BookStateInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
-    TResult Function(double price)? selected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -195,7 +180,6 @@ class _$BookStateInitial implements BookStateInitial {
     required TResult Function(BookStateInitial value) initial,
     required TResult Function(BookStateLoading value) loading,
     required TResult Function(BookStateLoaded value) loaded,
-    required TResult Function(BookStateSelected value) selected,
   }) {
     return initial(this);
   }
@@ -206,7 +190,6 @@ class _$BookStateInitial implements BookStateInitial {
     TResult Function(BookStateInitial value)? initial,
     TResult Function(BookStateLoading value)? loading,
     TResult Function(BookStateLoaded value)? loaded,
-    TResult Function(BookStateSelected value)? selected,
   }) {
     return initial?.call(this);
   }
@@ -217,7 +200,6 @@ class _$BookStateInitial implements BookStateInitial {
     TResult Function(BookStateInitial value)? initial,
     TResult Function(BookStateLoading value)? loading,
     TResult Function(BookStateLoaded value)? loaded,
-    TResult Function(BookStateSelected value)? selected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -275,7 +257,6 @@ class _$BookStateLoading implements BookStateLoading {
     required TResult Function() loading,
     required TResult Function(List<BookModel> asks, List<BookModel> bids)
         loaded,
-    required TResult Function(double price) selected,
   }) {
     return loading();
   }
@@ -286,7 +267,6 @@ class _$BookStateLoading implements BookStateLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
-    TResult Function(double price)? selected,
   }) {
     return loading?.call();
   }
@@ -297,7 +277,6 @@ class _$BookStateLoading implements BookStateLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
-    TResult Function(double price)? selected,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -312,7 +291,6 @@ class _$BookStateLoading implements BookStateLoading {
     required TResult Function(BookStateInitial value) initial,
     required TResult Function(BookStateLoading value) loading,
     required TResult Function(BookStateLoaded value) loaded,
-    required TResult Function(BookStateSelected value) selected,
   }) {
     return loading(this);
   }
@@ -323,7 +301,6 @@ class _$BookStateLoading implements BookStateLoading {
     TResult Function(BookStateInitial value)? initial,
     TResult Function(BookStateLoading value)? loading,
     TResult Function(BookStateLoaded value)? loaded,
-    TResult Function(BookStateSelected value)? selected,
   }) {
     return loading?.call(this);
   }
@@ -334,7 +311,6 @@ class _$BookStateLoading implements BookStateLoading {
     TResult Function(BookStateInitial value)? initial,
     TResult Function(BookStateLoading value)? loading,
     TResult Function(BookStateLoaded value)? loaded,
-    TResult Function(BookStateSelected value)? selected,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -426,7 +402,6 @@ class _$BookStateLoaded implements BookStateLoaded {
     required TResult Function() loading,
     required TResult Function(List<BookModel> asks, List<BookModel> bids)
         loaded,
-    required TResult Function(double price) selected,
   }) {
     return loaded(asks, bids);
   }
@@ -437,7 +412,6 @@ class _$BookStateLoaded implements BookStateLoaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
-    TResult Function(double price)? selected,
   }) {
     return loaded?.call(asks, bids);
   }
@@ -448,7 +422,6 @@ class _$BookStateLoaded implements BookStateLoaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
-    TResult Function(double price)? selected,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -463,7 +436,6 @@ class _$BookStateLoaded implements BookStateLoaded {
     required TResult Function(BookStateInitial value) initial,
     required TResult Function(BookStateLoading value) loading,
     required TResult Function(BookStateLoaded value) loaded,
-    required TResult Function(BookStateSelected value) selected,
   }) {
     return loaded(this);
   }
@@ -474,7 +446,6 @@ class _$BookStateLoaded implements BookStateLoaded {
     TResult Function(BookStateInitial value)? initial,
     TResult Function(BookStateLoading value)? loading,
     TResult Function(BookStateLoaded value)? loaded,
-    TResult Function(BookStateSelected value)? selected,
   }) {
     return loaded?.call(this);
   }
@@ -485,7 +456,6 @@ class _$BookStateLoaded implements BookStateLoaded {
     TResult Function(BookStateInitial value)? initial,
     TResult Function(BookStateLoading value)? loading,
     TResult Function(BookStateLoaded value)? loaded,
-    TResult Function(BookStateSelected value)? selected,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -504,153 +474,5 @@ abstract class BookStateLoaded implements BookState {
   List<BookModel> get bids;
   @JsonKey(ignore: true)
   $BookStateLoadedCopyWith<BookStateLoaded> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $BookStateSelectedCopyWith<$Res> {
-  factory $BookStateSelectedCopyWith(
-          BookStateSelected value, $Res Function(BookStateSelected) then) =
-      _$BookStateSelectedCopyWithImpl<$Res>;
-  $Res call({double price});
-}
-
-/// @nodoc
-class _$BookStateSelectedCopyWithImpl<$Res>
-    extends _$BookStateCopyWithImpl<$Res>
-    implements $BookStateSelectedCopyWith<$Res> {
-  _$BookStateSelectedCopyWithImpl(
-      BookStateSelected _value, $Res Function(BookStateSelected) _then)
-      : super(_value, (v) => _then(v as BookStateSelected));
-
-  @override
-  BookStateSelected get _value => super._value as BookStateSelected;
-
-  @override
-  $Res call({
-    Object? price = freezed,
-  }) {
-    return _then(BookStateSelected(
-      price: price == freezed
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$BookStateSelected implements BookStateSelected {
-  const _$BookStateSelected({required this.price});
-
-  @override
-  final double price;
-
-  @override
-  String toString() {
-    return 'BookState.selected(price: $price)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is BookStateSelected &&
-            const DeepCollectionEquality().equals(other.price, price));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(price));
-
-  @JsonKey(ignore: true)
-  @override
-  $BookStateSelectedCopyWith<BookStateSelected> get copyWith =>
-      _$BookStateSelectedCopyWithImpl<BookStateSelected>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<BookModel> asks, List<BookModel> bids)
-        loaded,
-    required TResult Function(double price) selected,
-  }) {
-    return selected(price);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
-    TResult Function(double price)? selected,
-  }) {
-    return selected?.call(price);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<BookModel> asks, List<BookModel> bids)? loaded,
-    TResult Function(double price)? selected,
-    required TResult orElse(),
-  }) {
-    if (selected != null) {
-      return selected(price);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BookStateInitial value) initial,
-    required TResult Function(BookStateLoading value) loading,
-    required TResult Function(BookStateLoaded value) loaded,
-    required TResult Function(BookStateSelected value) selected,
-  }) {
-    return selected(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(BookStateInitial value)? initial,
-    TResult Function(BookStateLoading value)? loading,
-    TResult Function(BookStateLoaded value)? loaded,
-    TResult Function(BookStateSelected value)? selected,
-  }) {
-    return selected?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BookStateInitial value)? initial,
-    TResult Function(BookStateLoading value)? loading,
-    TResult Function(BookStateLoaded value)? loaded,
-    TResult Function(BookStateSelected value)? selected,
-    required TResult orElse(),
-  }) {
-    if (selected != null) {
-      return selected(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class BookStateSelected implements BookState {
-  const factory BookStateSelected({required double price}) =
-      _$BookStateSelected;
-
-  double get price;
-  @JsonKey(ignore: true)
-  $BookStateSelectedCopyWith<BookStateSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }

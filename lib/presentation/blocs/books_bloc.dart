@@ -25,26 +25,38 @@ class BooksBloc extends Bloc<BookEvent, BookState> {
       this._connectAndAskUseCase, this._getBookUseCase, this._bookModelMapper)
       : super(const BookState.initial()) {
     on<BookEventLoad>((_, emit) async {
+      emit(const BookState.loading());
+
       await _connectAndAskUseCase.execute(param: Constants.productXBTUSD);
 
-      Stream<List<BookModel>> asks = _getBookUseCase
-          .execute(param: book_entity.Side.ask)
-          .map((books) =>
-              books.map((book) => _bookModelMapper.mapTo(book)).toList());
-      Stream<List<BookModel>> bids = _getBookUseCase
-          .execute(param: book_entity.Side.bid)
-          .map((books) =>
-              books.map((book) => _bookModelMapper.mapTo(book)).toList());
+      Stream<List<BookModel>> asks =
+          _getBookUseCase.execute(param: book_entity.Side.ask).map((books) {
+        double greatest = books.isNotEmpty
+            ? books
+                .reduce((value, element) =>
+                    value.quantity >= element.quantity ? value : element)
+                .quantity
+            : 0;
 
-      // var asks = Stream<List<BookModel>>.fromIterable([
-      //   [BookModel(side: Side.bid, price: 2.33, quantity: 2.33)],
-      //   [BookModel(side: Side.bid, price: 4.33, quantity: 4.33)]
-      // ]).asBroadcastStream();
-      // var bids = Stream<List<BookModel>>.fromIterable([
-      //   [BookModel(side: Side.bid, price: 3.33, quantity: 3.33)],
-      //   [BookModel(side: Side.bid, price: 6.33, quantity: 6.33)]
-      // ]).asBroadcastStream();
+        return books
+            .map((book) => _bookModelMapper.mapToWithGreatest(book, greatest))
+            .toList();
+      });
+      Stream<List<BookModel>> bids =
+          _getBookUseCase.execute(param: book_entity.Side.bid).map((books) {
+        double greatest = books.isNotEmpty
+            ? books
+                .reduce((value, element) =>
+                    value.quantity >= element.quantity ? value : element)
+                .quantity
+            : 0;
 
+        return books
+            .map((book) => _bookModelMapper.mapToWithGreatest(book, greatest))
+            .toList();
+      });
+
+      // Let's not emit too fast, to avoid flooding the UI
       var bookStates = CombineLatestStream.combine2(asks, bids,
           (List<BookModel> bookAsks, List<BookModel> bookBids) {
         return BookState.loaded(asks: bookAsks, bids: bookBids);
@@ -54,15 +66,6 @@ class BooksBloc extends Bloc<BookEvent, BookState> {
         emit(state);
         getLogger().i(state);
       }
-
-      // await for (var state in asks) {
-      //   getLogger().i(state);
-      //   BookState.loaded(asks: state, bids: []);
-      // }
-    });
-
-    on<BookEventSelect>((event, emit) {
-      emit(BookState.selected(price: event.price));
     });
   }
 }

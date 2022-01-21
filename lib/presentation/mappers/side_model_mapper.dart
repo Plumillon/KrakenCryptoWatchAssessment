@@ -1,4 +1,4 @@
-import 'package:kraken_crypto_watch/core/mappers/mapper.dart';
+import 'package:kraken_crypto_watch/utils/mapper.dart';
 import 'package:kraken_crypto_watch/domain/entities/book_entity.dart'
     as book_entity;
 import 'package:kraken_crypto_watch/presentation/models/book_model.dart';
