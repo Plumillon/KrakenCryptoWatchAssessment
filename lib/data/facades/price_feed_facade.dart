@@ -76,7 +76,6 @@ class PriceFeedFacade {
         _eventsSubscription.add(PriceFeedEventDTO.fromJson(jsonObject));
       } catch (e) {
         getLogger().i("Event");
-        getLogger().w(jsonObject);
         getLogger().e(e);
       }
     } else if (jsonObject['feed'] != null) {
@@ -84,7 +83,6 @@ class PriceFeedFacade {
         _booksSubscription.add(PriceFeedBookDTO.fromJson(jsonObject));
       } catch (e) {
         getLogger().i("Book");
-        getLogger().w(jsonObject);
         getLogger().e(e);
       }
     }

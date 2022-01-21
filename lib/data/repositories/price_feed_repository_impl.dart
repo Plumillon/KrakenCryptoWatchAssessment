@@ -19,22 +19,11 @@ class PriceFeedRepositoryImpl implements PriceFeedRepository {
 
   @override
   Stream<BookEntity> getBooks() {
-    // return
-    //   Stream.periodic(const Duration(seconds: 1), (int index) {
-    //     return BookEntity(
-    //         side: Side.ask, price: index - 1.33, quantity: index - 1.33);
-    //   });
     return _dataSource.books.map((book) => _bookMapper.mapFrom(book));
   }
 
   @override
   Stream<List<BookEntity>> getSnapshots() {
-    // return
-    //   Stream.periodic(const Duration(seconds: 1), (int index) {
-    //     return [BookEntity(
-    //         side: Side.ask, price: index + 1.33, quantity: index + 1.33), BookEntity(
-    //         side: Side.bid, price: index + 2.33, quantity: index + 2.33)];
-    //   });
     return _dataSource.snapshots
         .map((snapshot) => _snapshotMapper.mapFrom(snapshot));
   }

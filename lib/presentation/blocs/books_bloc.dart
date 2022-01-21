@@ -5,6 +5,7 @@ import 'package:kraken_crypto_watch/core/constants.dart';
 import 'package:kraken_crypto_watch/domain/entities/book_entity.dart'
     as book_entity;
 import 'package:kraken_crypto_watch/domain/use_cases/connect_and_ask_use_case.dart';
+import 'package:kraken_crypto_watch/domain/use_cases/disconnect_use_case.dart';
 import 'package:kraken_crypto_watch/domain/use_cases/get_books_use_case.dart';
 import 'package:kraken_crypto_watch/presentation/events/book_event.dart';
 import 'package:kraken_crypto_watch/presentation/mappers/book_model_mapper.dart';
@@ -15,14 +16,15 @@ import 'package:rxdart/rxdart.dart';
 
 class BooksBloc extends Bloc<BookEvent, BookState> {
   final ConnectAndAskUseCase _connectAndAskUseCase;
+  final DisconnectUseCase _disconnectUseCase;
   final GetBooksUseCase _getBookUseCase;
   final BookModelMapper _bookModelMapper;
 
   // StreamSubscription? asksSubscription;
   StreamSubscription? bidsSubscription;
 
-  BooksBloc(
-      this._connectAndAskUseCase, this._getBookUseCase, this._bookModelMapper)
+  BooksBloc(this._connectAndAskUseCase, this._disconnectUseCase,
+      this._getBookUseCase, this._bookModelMapper)
       : super(const BookState.initial()) {
     on<BookEventLoad>((_, emit) async {
       emit(const BookState.loading());
@@ -66,6 +68,10 @@ class BooksBloc extends Bloc<BookEvent, BookState> {
         emit(state);
         getLogger().i(state);
       }
+    });
+
+    on<BookEventStop>((_, __) {
+      _disconnectUseCase.execute(param: null).then((_) {});
     });
   }
 }

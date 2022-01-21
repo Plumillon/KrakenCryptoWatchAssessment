@@ -15,12 +15,13 @@ import '../../data/mappers/price_feed_snapshot_mapper.dart' as _i7;
 import '../../data/repositories/price_feed_repository_impl.dart' as _i11;
 import '../../domain/repositories/price_feed_repository.dart' as _i12;
 import '../../domain/use_cases/connect_and_ask_use_case.dart' as _i13;
-import '../../domain/use_cases/get_books_use_case.dart' as _i14;
-import '../blocs/books_bloc.dart' as _i15;
+import '../../domain/use_cases/disconnect_use_case.dart' as _i14;
+import '../../domain/use_cases/get_books_use_case.dart' as _i15;
+import '../blocs/books_bloc.dart' as _i16;
 import '../blocs/price_bloc.dart' as _i4;
 import '../mappers/book_model_mapper.dart' as _i9;
 import '../mappers/side_model_mapper.dart' as _i8;
-import 'injector.dart' as _i16; // ignore_for_file: unnecessary_lambdas
+import 'injector.dart' as _i17; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -47,15 +48,18 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       .priceFeedRepository(get<_i11.PriceFeedRepositoryImpl>()));
   gh.factory<_i13.ConnectAndAskUseCase>(
       () => _i13.ConnectAndAskUseCase(get<_i12.PriceFeedRepository>()));
-  gh.factory<_i14.GetBooksUseCase>(
-      () => _i14.GetBooksUseCase(get<_i12.PriceFeedRepository>()));
-  gh.factory<_i15.BooksBloc>(() => _i15.BooksBloc(
+  gh.factory<_i14.DisconnectUseCase>(
+      () => _i14.DisconnectUseCase(get<_i12.PriceFeedRepository>()));
+  gh.factory<_i15.GetBooksUseCase>(
+      () => _i15.GetBooksUseCase(get<_i12.PriceFeedRepository>()));
+  gh.factory<_i16.BooksBloc>(() => _i16.BooksBloc(
       get<_i13.ConnectAndAskUseCase>(),
-      get<_i14.GetBooksUseCase>(),
+      get<_i14.DisconnectUseCase>(),
+      get<_i15.GetBooksUseCase>(),
       get<_i9.BookModelMapper>()));
   return get;
 }
 
-class _$AppModule extends _i16.AppModule {}
+class _$AppModule extends _i17.AppModule {}
 
-class _$RepositoriesModule extends _i16.RepositoriesModule {}
+class _$RepositoriesModule extends _i17.RepositoriesModule {}

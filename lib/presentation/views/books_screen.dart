@@ -11,14 +11,14 @@ import 'package:kraken_crypto_watch/presentation/models/book_model.dart';
 import 'package:kraken_crypto_watch/presentation/states/book_state.dart';
 import 'package:kraken_crypto_watch/presentation/states/price_state.dart';
 
-class BooksList extends StatefulWidget {
-  const BooksList({Key? key}) : super(key: key);
+class BooksScreen extends StatefulWidget {
+  const BooksScreen({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _BooksListState();
+  State<StatefulWidget> createState() => _BooksScreenState();
 }
 
-class _BooksListState extends State<BooksList> {
+class _BooksScreenState extends State<BooksScreen> with WidgetsBindingObserver {
   late BooksBloc _booksBloc;
   late PriceBloc _priceBloc;
   final TextEditingController _textController = TextEditingController();
@@ -26,9 +26,32 @@ class _BooksListState extends State<BooksList> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance?.addObserver(this);
+
     _booksBloc = getIt<BooksBloc>();
     _priceBloc = getIt<PriceBloc>();
     _booksBloc.add(const BookEvent.load());
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    WidgetsBinding.instance?.removeObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        _booksBloc.add(const BookEvent.load());
+        break;
+      case AppLifecycleState.paused:
+        _booksBloc.add(const BookEvent.stop());
+        break;
+      default:
+        break;
+    }
   }
 
   @override

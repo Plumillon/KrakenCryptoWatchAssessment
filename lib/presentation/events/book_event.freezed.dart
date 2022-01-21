@@ -21,6 +21,14 @@ class _$BookEventTearOff {
   BookEventLoad load() {
     return const BookEventLoad();
   }
+
+  BookEventResume resume() {
+    return const BookEventResume();
+  }
+
+  BookEventStop stop() {
+    return const BookEventStop();
+  }
 }
 
 /// @nodoc
@@ -31,32 +39,44 @@ mixin _$BookEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function() resume,
+    required TResult Function() stop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function()? resume,
+    TResult Function()? stop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function()? resume,
+    TResult Function()? stop,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(BookEventLoad value) load,
+    required TResult Function(BookEventResume value) resume,
+    required TResult Function(BookEventStop value) stop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(BookEventLoad value)? load,
+    TResult Function(BookEventResume value)? resume,
+    TResult Function(BookEventStop value)? stop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BookEventLoad value)? load,
+    TResult Function(BookEventResume value)? resume,
+    TResult Function(BookEventStop value)? stop,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,6 +138,8 @@ class _$BookEventLoad implements BookEventLoad {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function() resume,
+    required TResult Function() stop,
   }) {
     return load();
   }
@@ -126,6 +148,8 @@ class _$BookEventLoad implements BookEventLoad {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function()? resume,
+    TResult Function()? stop,
   }) {
     return load?.call();
   }
@@ -134,6 +158,8 @@ class _$BookEventLoad implements BookEventLoad {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function()? resume,
+    TResult Function()? stop,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -146,6 +172,8 @@ class _$BookEventLoad implements BookEventLoad {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(BookEventLoad value) load,
+    required TResult Function(BookEventResume value) resume,
+    required TResult Function(BookEventStop value) stop,
   }) {
     return load(this);
   }
@@ -154,6 +182,8 @@ class _$BookEventLoad implements BookEventLoad {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(BookEventLoad value)? load,
+    TResult Function(BookEventResume value)? resume,
+    TResult Function(BookEventStop value)? stop,
   }) {
     return load?.call(this);
   }
@@ -162,6 +192,8 @@ class _$BookEventLoad implements BookEventLoad {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BookEventLoad value)? load,
+    TResult Function(BookEventResume value)? resume,
+    TResult Function(BookEventStop value)? stop,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -173,4 +205,224 @@ class _$BookEventLoad implements BookEventLoad {
 
 abstract class BookEventLoad implements BookEvent {
   const factory BookEventLoad() = _$BookEventLoad;
+}
+
+/// @nodoc
+abstract class $BookEventResumeCopyWith<$Res> {
+  factory $BookEventResumeCopyWith(
+          BookEventResume value, $Res Function(BookEventResume) then) =
+      _$BookEventResumeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$BookEventResumeCopyWithImpl<$Res> extends _$BookEventCopyWithImpl<$Res>
+    implements $BookEventResumeCopyWith<$Res> {
+  _$BookEventResumeCopyWithImpl(
+      BookEventResume _value, $Res Function(BookEventResume) _then)
+      : super(_value, (v) => _then(v as BookEventResume));
+
+  @override
+  BookEventResume get _value => super._value as BookEventResume;
+}
+
+/// @nodoc
+
+class _$BookEventResume implements BookEventResume {
+  const _$BookEventResume();
+
+  @override
+  String toString() {
+    return 'BookEvent.resume()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is BookEventResume);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() resume,
+    required TResult Function() stop,
+  }) {
+    return resume();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? resume,
+    TResult Function()? stop,
+  }) {
+    return resume?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? resume,
+    TResult Function()? stop,
+    required TResult orElse(),
+  }) {
+    if (resume != null) {
+      return resume();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BookEventLoad value) load,
+    required TResult Function(BookEventResume value) resume,
+    required TResult Function(BookEventStop value) stop,
+  }) {
+    return resume(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(BookEventLoad value)? load,
+    TResult Function(BookEventResume value)? resume,
+    TResult Function(BookEventStop value)? stop,
+  }) {
+    return resume?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BookEventLoad value)? load,
+    TResult Function(BookEventResume value)? resume,
+    TResult Function(BookEventStop value)? stop,
+    required TResult orElse(),
+  }) {
+    if (resume != null) {
+      return resume(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BookEventResume implements BookEvent {
+  const factory BookEventResume() = _$BookEventResume;
+}
+
+/// @nodoc
+abstract class $BookEventStopCopyWith<$Res> {
+  factory $BookEventStopCopyWith(
+          BookEventStop value, $Res Function(BookEventStop) then) =
+      _$BookEventStopCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$BookEventStopCopyWithImpl<$Res> extends _$BookEventCopyWithImpl<$Res>
+    implements $BookEventStopCopyWith<$Res> {
+  _$BookEventStopCopyWithImpl(
+      BookEventStop _value, $Res Function(BookEventStop) _then)
+      : super(_value, (v) => _then(v as BookEventStop));
+
+  @override
+  BookEventStop get _value => super._value as BookEventStop;
+}
+
+/// @nodoc
+
+class _$BookEventStop implements BookEventStop {
+  const _$BookEventStop();
+
+  @override
+  String toString() {
+    return 'BookEvent.stop()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is BookEventStop);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() resume,
+    required TResult Function() stop,
+  }) {
+    return stop();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? resume,
+    TResult Function()? stop,
+  }) {
+    return stop?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? resume,
+    TResult Function()? stop,
+    required TResult orElse(),
+  }) {
+    if (stop != null) {
+      return stop();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BookEventLoad value) load,
+    required TResult Function(BookEventResume value) resume,
+    required TResult Function(BookEventStop value) stop,
+  }) {
+    return stop(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(BookEventLoad value)? load,
+    TResult Function(BookEventResume value)? resume,
+    TResult Function(BookEventStop value)? stop,
+  }) {
+    return stop?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BookEventLoad value)? load,
+    TResult Function(BookEventResume value)? resume,
+    TResult Function(BookEventStop value)? stop,
+    required TResult orElse(),
+  }) {
+    if (stop != null) {
+      return stop(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BookEventStop implements BookEvent {
+  const factory BookEventStop() = _$BookEventStop;
 }
