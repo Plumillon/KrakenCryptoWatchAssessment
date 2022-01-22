@@ -1,6 +1,7 @@
 # Kraken - CryptoWatch assessment
 
-# TLDR; How to run
+# TLDR;
+## How to run
 Assuming you have Flutter installed on your env.
 
 2 choices:
@@ -13,6 +14,10 @@ Assuming you have Flutter installed on your env.
   * run `flutter pub get`
   * run `flutter packages pub run build_runner build --delete-conflicting-outputs`
   * run `flutter run lib/presentation/main.dart`
+
+## Test
+  * cd to `app`
+  * run `flutter test`
 
 # The context
 This project is an assessment asked by Kraken (CryptWatch) during the interview process of a Flutter developer position.
