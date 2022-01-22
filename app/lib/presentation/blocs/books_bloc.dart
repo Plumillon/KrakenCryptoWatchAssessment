@@ -20,9 +20,6 @@ class BooksBloc extends Bloc<BookEvent, BookState> {
   final GetBooksUseCase _getBookUseCase;
   final BookModelMapper _bookModelMapper;
 
-  // StreamSubscription? asksSubscription;
-  StreamSubscription? bidsSubscription;
-
   BooksBloc(this._connectAndAskUseCase, this._disconnectUseCase,
       this._getBookUseCase, this._bookModelMapper)
       : super(const BookState.initial()) {

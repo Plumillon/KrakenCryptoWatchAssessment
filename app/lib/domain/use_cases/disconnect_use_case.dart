@@ -7,7 +7,6 @@ class DisconnectUseCase implements FutureUseCase<void, void> {
   DisconnectUseCase(this._priceFeedRepository);
 
   /// Disconnect
-  ///
   @override
   Future<void> execute({required void param}) {
     return _priceFeedRepository.disconnect();

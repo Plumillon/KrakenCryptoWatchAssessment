@@ -7,7 +7,6 @@ class ConnectAndAskUseCase implements FutureUseCase<String, void> {
   ConnectAndAskUseCase(this._priceFeedRepository);
 
   /// Connect and ask for books
-  ///
   @override
   Future<void> execute({required String param}) {
     return _priceFeedRepository
