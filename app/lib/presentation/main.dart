@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kraken_crypto_watch/presentation/views/books_screen.dart';
 
-import '../di/injector.dart';
+import 'di/injector.dart';
 
 void main() {
   configureInjection();
